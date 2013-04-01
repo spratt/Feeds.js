@@ -50,6 +50,7 @@ $(function() {
 			group_header.appendTo(container);
 			group.entries.forEach(function(entry) {
 				var entry_block = $('<div>');
+				entry_block.addClass('spaced');
 				var entry_link = $('<a>');
 				entry_link.attr('href',entry.link);
 				var entry_header = $('<h3>');
