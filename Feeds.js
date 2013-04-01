@@ -12,7 +12,13 @@ $(function() {
 	}
 
 	function addFeed(feed) {
-		feed_entries = feed_entries.concat(feed.entries);
+		var new_entries = feed.entries;
+		new_entries.forEach(function(entry) {
+			if(entry.publishedDate === '') {
+				entry.publishedDate = (new Date(0)).toString();
+			}
+		});
+		feed_entries = feed_entries.concat(new_entries);
 		feed_entries.sort(function(a,b) {
 			var aDateStr = a.publishedDate;
 			var aDate = new Date(aDateStr);
