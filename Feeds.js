@@ -41,9 +41,7 @@ $(function() {
 		});
 	};
 
-	window.com = window.com || {};
-	window.com.pr4tt = window.com.pr4tt || {};
-	window.com.pr4tt.Feeds = function com_pr4tt_Feeds(feeds) {
+	Feeds = function Feeds(feeds) {
 		feed_urls = feeds;
 	};
 	
