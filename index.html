@@ -34,7 +34,10 @@
   <script>
     $(function() {
       Feeds([
-        {name:'Blogs',feeds:['http://pr4tt.com/atom.xml']},
+        {name:'Blogs',feeds:[
+          'http://pr4tt.com/atom.xml',
+          'http://longform.org/feed.rss'
+        ]},
         {name:'Hacker News',feeds:['https://news.ycombinator.com/rss']},
         {name:'Paul Graham',feeds:['http://www.aaronsw.com/2002/feeds/pgessays.rss']}
       ]);

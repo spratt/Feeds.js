@@ -12,11 +12,13 @@ $(function() {
 	}
 
 	function addFeed(group,feed) {
+		console.dir(feed);
 		var new_entries = feed.entries;
 		new_entries.forEach(function(entry) {
 			if(entry.publishedDate === '') {
 				entry.publishedDate = (new Date(0)).toString();
 			}
+			entry.feedName = feed.title;
 		});
 		group.entries = group.entries.concat(new_entries);
 		group.entries.sort(function(a,b) {
@@ -51,9 +53,21 @@ $(function() {
 				var entry_link = $('<a>');
 				entry_link.attr('href',entry.link);
 				var entry_header = $('<h3>');
+				entry_header.addClass('inline');
 				entry_header.text(entry.title);
 				entry_link.append(entry_header);
 				entry_block.append(entry_link);
+				if(group.feeds.length > 1) {
+					var entry_source = $('<h4>');
+					entry_source.addClass('inline');
+					entry_source.text('(' + entry.feedName + ')');
+					entry_block.append(entry_source);
+				}
+				if(entry.author !== '' && entry.author !== 'editors') {
+					var entry_author = $('<span>');
+					entry_author.text('By: ' + entry.author);
+					entry_block.append(entry_author);
+				}
 				var entry_content = $('<div>');
 				entry_content.html(entry.content);
 				entry_block.append(entry_content);
