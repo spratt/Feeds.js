@@ -24,15 +24,17 @@
     <div id="container">
     </div>
     <div id="footer"></div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="Feeds.js"></script>
-    <script>
-      $(function() {
-        Feeds([
-          'https://news.ycombinator.com/rss',
-          'http://www.aaronsw.com/2002/feeds/pgessays.rss'
-        ]);
-      });
-    </script>
   </body>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="Feeds.js"></script>
+  <script>
+    $(function() {
+      console.log('wtf2');
+      com.pr4tt.Feeds([
+        'https://news.ycombinator.com/rss',
+        'http://www.aaronsw.com/2002/feeds/pgessays.rss'
+      ]);
+    });
+  </script>
 </html>

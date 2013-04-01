@@ -1,25 +1,17 @@
+// This call must happen before jQuery is ready, or it destroys the
+// whole page.  This is insane.
+google.load("feeds", "1");
+
 $(function() {
+	var feed_urls;
 	var feed_entries = [];
 	var container = $('#container');
 	
-	// The following function taken from:
-	// http://stackoverflow.com/questions/226663/parse-rss-with-jquery
 	function parseFeed(url, callback) {
-		var req_url = document.location.protocol;
-		req_url += '//ajax.googleapis.com/ajax/services/feed/load';
-		req_url += '?v=1.0&num=10&callback=?&q=';
-		req_url += encodeURIComponent(url);
-		$.ajax({
-			url: req_url,
-			dataType: 'json',
-			success: function(data) {
-				callback(data.responseData.feed);
-			}
-		});
+		(new google.feeds.Feed(url)).load(callback);
 	}
 
 	function addFeed(feed) {
-		console.dir(feed.entries);
 		feed_entries = feed_entries.concat(feed.entries);
 		feed_entries.sort(function(a,b) {
 			var aDateStr = a.publishedDate;
@@ -48,12 +40,19 @@ $(function() {
 			entry_block.appendTo(container);
 		});
 	};
+
+	window.com = window.com || {};
+	window.com.pr4tt = window.com.pr4tt || {};
+	window.com.pr4tt.Feeds = function com_pr4tt_Feeds(feeds) {
+		feed_urls = feeds;
+	};
 	
-	window.Feeds = function Feeds(feeds) {
-		feeds.forEach(function(url) {
-			parseFeed(url,function(feed) {
-				addFeed(feed);
+	google.setOnLoadCallback(function() {
+		feed_urls.forEach(function(url) {
+			parseFeed(url,function(result) {
+				if(result.error) return;
+				addFeed(result.feed);
 			});
 		});
-	};
+	});
 });
