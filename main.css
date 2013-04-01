@@ -1,0 +1,43 @@
+/* inspired by readability's novel theme */
+
+body {
+	color: rgb(29, 25, 22);
+	background: rgb(244, 238, 217);
+	font-family: Cambria,"Hoefler Text",Georgia,"Times New Roman",serif;
+	margin-top: 0.5cm;
+	margin-bottom: 1cm;
+}
+
+#container, #header, #content {
+	margin: 0px auto;
+}
+
+#container, #header {
+	max-width: 940px;
+}
+
+#content {
+	max-width: 800px;
+	line-height: 1.5;
+	font-size: 1.2em;
+}
+
+#title, #author, #date, .prevLink {
+	display: inline;
+}
+
+#date, .nextLink {
+	float: right;
+}
+
+a, a:visited {
+	color: rgb(156, 0, 1);
+}
+
+h1 {
+	font-size: 2.5em;
+}
+
+br {
+	margin-bottom: 0.2cm;
+}
