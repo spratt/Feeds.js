@@ -13,7 +13,7 @@ body {
 }
 
 #container, #header {
-	max-width: 940px;
+	max-width: 800px;
 }
 
 #content {

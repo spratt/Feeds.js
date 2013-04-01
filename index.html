@@ -22,6 +22,9 @@
     </div>
     <br clear="all">
     <div id="container">
+      <h2>Table of Contents</h2>
+      <ul id="toc"></ul>
+      <div id="content"></div>
     </div>
     <div id="footer"></div>
   </body>
@@ -31,9 +34,9 @@
   <script>
     $(function() {
       Feeds([
-        'https://news.ycombinator.com/rss',
-        'http://www.aaronsw.com/2002/feeds/pgessays.rss',
-        'http://pr4tt.com/atom.xml'
+        {name:'Blogs',feeds:['http://pr4tt.com/atom.xml']},
+        {name:'Hacker News',feeds:['https://news.ycombinator.com/rss']},
+        {name:'Paul Graham',feeds:['http://www.aaronsw.com/2002/feeds/pgessays.rss']}
       ]);
     });
   </script>
