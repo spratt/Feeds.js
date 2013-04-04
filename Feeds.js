@@ -8,7 +8,10 @@ $(function() {
 	var toc = $('#toc');
 	
 	function parseFeed(url, callback) {
-		(new google.feeds.Feed(url)).load(callback);
+		var feed = new google.feeds.Feed(url)
+		feed.includeHistoricalEntries();
+		feed.setNumEntries(10);
+		feed.load(callback);
 	}
 
 	function addFeed(group,feed) {
