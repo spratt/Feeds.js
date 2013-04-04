@@ -72,7 +72,7 @@ $(function() {
 			entry_block.append(entry_source);
 		}
 		if(entry.author !== '' && entry.author !== 'editors') {
-			var entry_author = $('<span>');
+			var entry_author = $('<div>');
 			entry_author.text('By: ' + entry.author);
 			entry_block.append(entry_author);
 		}
