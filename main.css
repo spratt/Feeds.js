@@ -32,7 +32,14 @@ body {
 
 a, a:active, a:hover, a:focus {
 	color: rgb(156, 0, 1);
+}
+
+a, a:active, a:focus {
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 h1 {
@@ -55,4 +62,8 @@ h4 {
 
 br {
 	margin-bottom: 0.2cm;
+}
+
+#header > a {
+	margin-left: 0.2cm;
 }
