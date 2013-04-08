@@ -15,7 +15,9 @@ $(function() {
 	}
 
 	function addFeed(group,feed) {
-		var new_entries = feed.entries;
+		var new_entries = feed.entries.filter(function(entry) {
+			return entry.title !== '';
+		});
 		new_entries.forEach(function(entry) {
 			if(entry.publishedDate === '') {
 				entry.publishedDate = (new Date(0)).toString();
